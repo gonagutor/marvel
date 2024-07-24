@@ -1,5 +1,4 @@
-$background-color: #000000;
-$foreground-color: #ffffff;
+@import "../../variables.scss";
 
 .header {
   display: flex;
@@ -10,7 +9,7 @@ $foreground-color: #ffffff;
   padding-inline: 3rem;
   padding-block: 1rem;
 
-  background: $background-color;
+  background: $foreground-color;
 
   button {
     display: grid;
@@ -20,12 +19,12 @@ $foreground-color: #ffffff;
     padding: 0;
 
     background: none;
-    color: $foreground-color;
+    color: $background-color;
     border: none;
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: $mobile-breakpoint) {
   .header {
     padding: 1rem;
   }

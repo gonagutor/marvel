@@ -1,9 +1,9 @@
-import Header from "@/app/components/Header";
+import SearchBar from "./components/SearchBar";
 
 export default function Home() {
   return (
     <main>
-      <Header></Header>
+      <SearchBar />
       <h1>Main page</h1>
     </main>
   );
