@@ -1,0 +1,32 @@
+$background-color: #000000;
+$foreground-color: #ffffff;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-inline: 3rem;
+  padding-block: 1rem;
+
+  background: $background-color;
+
+  button {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    padding: 0;
+
+    background: none;
+    color: $foreground-color;
+    border: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .header {
+    padding: 1rem;
+  }
+}
