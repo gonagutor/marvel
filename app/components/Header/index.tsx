@@ -7,7 +7,7 @@ export default function Header() {
       <Image width={130} height={52} src="/marvel-logo.svg" alt="Marvel logo" />
 
       <button aria-label="View favorites">
-        <Image width={24} height={24} src="/icon/heart.svg" alt="Favorites" />
+        <Image width={24} height={24} src="/icons/heart.svg" alt="Favorites" />
         <span>8</span>
       </button>
     </header>
