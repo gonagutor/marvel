@@ -1,0 +1,82 @@
+@import "../../../../variables.scss";
+
+$corner-cut-size: 12px;
+
+@keyframes color-forwards {
+  to {
+    background-position: 0 0;
+  }
+  from {
+    background-position: 0 100%;
+  }
+}
+
+.character-list-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+
+  min-width: 11rem;
+
+  list-style-type: none;
+
+  > img {
+    aspect-ratio: 1;
+    border-bottom: 5px solid $accent-color;
+  }
+
+  > section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(
+      to bottom,
+      $accent-color 50%,
+      $foreground-color 50%
+    );
+    background-size: 100% 200%;
+    background-position: 0 100%;
+    color: $background-color;
+
+    padding: 1rem 1rem 1.5rem 1rem;
+
+    span {
+      display: inline-block;
+
+      padding-right: 0.75rem;
+
+      font-size: 0.875rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.character-list-item:hover {
+  > section {
+    color: $background-color;
+
+    animation: color-forwards 0.25s linear forwards;
+  }
+}
+
+.character-list-item:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  width: $corner-cut-size;
+  height: $corner-cut-size;
+
+  background-color: $background-color;
+
+  margin: calc(-1 * ($corner-cut-size / 2));
+
+  transform: rotate(45deg);
+}
