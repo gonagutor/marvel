@@ -2,15 +2,6 @@
 
 $corner-cut-size: 12px;
 
-@keyframes color-forwards {
-  to {
-    background-position: 0 0;
-  }
-  from {
-    background-position: 0 100%;
-  }
-}
-
 .character-list-item {
   position: relative;
   display: flex;
@@ -27,18 +18,15 @@ $corner-cut-size: 12px;
   }
 
   > section {
+    overflow: hidden;
+    position: relative;
+    transition: color 0.25s linear;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-    background: linear-gradient(
-      to bottom,
-      $accent-color 50%,
-      $foreground-color 50%
-    );
-    background-size: 100% 200%;
-    background-position: 0 100%;
+    background: $foreground-color;
     color: $background-color;
 
     padding: 1rem 1rem 1.5rem 1rem;
@@ -53,30 +41,63 @@ $corner-cut-size: 12px;
       white-space: nowrap;
       text-overflow: ellipsis;
       text-transform: uppercase;
+
+      z-index: 1;
+    }
+
+    img {
+      z-index: 1;
+    }
+
+    // Top down sliding animation uses this after to cover the background
+    &:after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -100%;
+      bottom: 100%;
+
+      background: $accent-color;
+      z-index: 0;
+      display: block;
+
+      transition: all 0.35s;
     }
   }
-}
 
-.character-list-item:hover {
-  > section {
-    color: $background-color;
+  // Corner cutting
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
 
-    animation: color-forwards 0.25s linear forwards;
+    width: $corner-cut-size;
+    height: $corner-cut-size;
+
+    background-color: $background-color;
+
+    margin: calc(-1 * ($corner-cut-size / 2));
+
+    transform: rotate(45deg);
   }
 }
 
-.character-list-item:before {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
+.character-list-item:hover > section {
+  color: $foreground-color;
 
-  width: $corner-cut-size;
-  height: $corner-cut-size;
+  > img {
+    -webkit-filter: brightness(0);
+    filter: brightness(0);
+  }
 
-  background-color: $background-color;
-
-  margin: calc(-1 * ($corner-cut-size / 2));
-
-  transform: rotate(45deg);
+  &:after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.35s;
+  }
 }
