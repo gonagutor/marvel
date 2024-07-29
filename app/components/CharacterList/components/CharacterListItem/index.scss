@@ -8,8 +8,6 @@ $corner-cut-size: 12px;
   flex-direction: column;
   flex: 1 1 0;
 
-  min-width: 11rem;
-
   list-style-type: none;
 
   > img {
@@ -20,7 +18,6 @@ $corner-cut-size: 12px;
   > section {
     overflow: hidden;
     position: relative;
-    transition: color 0.25s linear;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -86,11 +83,9 @@ $corner-cut-size: 12px;
 }
 
 .character-list-item:hover > section {
-  color: $foreground-color;
-
   > img {
-    -webkit-filter: brightness(0);
-    filter: brightness(0);
+    -webkit-filter: brightness(100);
+    filter: brightness(100);
   }
 
   &:after {
