@@ -13,6 +13,7 @@ $corner-cut-size: 12px;
   > img {
     aspect-ratio: 1;
     border-bottom: 5px solid $accent-color;
+    background-color: $foreground-color;
   }
 
   > section {

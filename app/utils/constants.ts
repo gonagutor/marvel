@@ -1,0 +1,5 @@
+const LOCALSTORAGE_KEYS = {
+  FAVORITES: "FAVORITES",
+};
+
+export { LOCALSTORAGE_KEYS };
