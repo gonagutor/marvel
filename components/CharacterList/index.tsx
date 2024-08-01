@@ -1,10 +1,10 @@
 "use client";
 
-import Character from "@/app/model/character";
+import { useContext } from "react";
+import { SearchContext } from "@/providers/SearchProvider";
+import Character from "@/model/character";
 import CharacterListItem from "./components/CharacterListItem";
 import "./index.scss";
-import { SearchContext } from "@/app/providers/SearchProvider";
-import { useContext } from "react";
 
 export default function CharacterList() {
   const { loading, error, characters } = useContext(SearchContext);

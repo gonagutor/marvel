@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import "./index.scss";
 import { useContext } from "react";
-import { FavoritesContext } from "@/app/providers/FavoritesProvider";
+import Image from "next/image";
+import { FavoritesContext } from "@/providers/FavoritesProvider";
+import "./index.scss";
 
 export default function Header() {
   const { favorites } = useContext(FavoritesContext);

@@ -1,6 +1,6 @@
 "use client";
 
-import { LOCALSTORAGE_KEYS } from "../utils/constants";
+import { LOCALSTORAGE_KEYS } from "@/utils/constants";
 import Character from "./character";
 
 export default class Favorites {

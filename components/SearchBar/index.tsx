@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { ChangeEvent, useContext } from "react";
-import { SearchContext } from "@/app/providers/SearchProvider";
+import Image from "next/image";
+import { SearchContext } from "@/providers/SearchProvider";
 import "./index.scss";
 
 export default function SearchBar() {

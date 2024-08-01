@@ -1,9 +1,9 @@
-import Image from "next/image";
-import "./index.scss";
-import Character from "@/app/model/character";
 import { useContext } from "react";
-import { FavoritesContext } from "@/app/providers/FavoritesProvider";
-import Favorites from "@/app/model/favorites";
+import Image from "next/image";
+import { FavoritesContext } from "@/providers/FavoritesProvider";
+import Character from "@/model/character";
+import Favorites from "@/model/favorites";
+import "./index.scss";
 
 export default function CharacterListItem({
   character,

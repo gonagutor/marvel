@@ -1,8 +1,8 @@
 "use client";
 
-import { createContext, Dispatch, SetStateAction, useState } from "react";
-import Character from "../model/character";
-import useCharacters from "../hooks/useCharacters";
+import { createContext, useState } from "react";
+import Character from "@/model/character";
+import useCharacters from "@/hooks/useCharacters";
 
 export const SearchContext = createContext<{
   term: string;

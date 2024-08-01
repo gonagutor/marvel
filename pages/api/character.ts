@@ -1,4 +1,4 @@
-import Character from "@/app/model/character";
+import Character from "@/model/character";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 let defaultResponse: Array<Character> = [];

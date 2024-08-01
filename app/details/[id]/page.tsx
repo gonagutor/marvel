@@ -1,6 +1,6 @@
 "use server";
 
-import Character from "@/app/model/character";
+import Character from "@/model/character";
 
 export default async function Details({
   params: { id },

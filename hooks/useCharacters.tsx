@@ -1,8 +1,7 @@
-import { clientAxios } from "@/app/utils/axios";
-import useSWR from "swr";
-import Character from "../model/character";
-import useSWRMutation from "swr/mutation";
 import { useEffect } from "react";
+import useSWRMutation from "swr/mutation";
+import { clientAxios } from "@/utils/axios";
+import Character from "@/model/character";
 
 const INTERNAL_CHARACTER_ROUTE = "/api/character";
 const fetcher = (url: string, { arg }: { arg: string }) =>

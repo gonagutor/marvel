@@ -1,8 +1,8 @@
 "use client";
 
 import { createContext, useEffect, useState } from "react";
-import Character from "../model/character";
-import Favorites from "../model/favorites";
+import Character from "@/model/character";
+import Favorites from "@/model/favorites";
 
 export const FavoritesContext = createContext<{
   favorites: Array<Character>;

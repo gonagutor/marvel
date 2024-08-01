@@ -1,8 +1,8 @@
 import { AxiosResponse } from "axios";
-import { serverAxios } from "@/app/utils/axios";
-import ENDPOINTS from "@/app/utils/endpoints";
+import { serverAxios } from "@/utils/axios";
+import ENDPOINTS from "@/utils/endpoints";
+import CouldNotRetrieveCharacters from "@/utils/errors/CouldNotRetrieveCharacters";
 import Comic from "./comic";
-import CouldNotRetrieveCharacters from "../utils/errors/CouldNotRetrieveCharacters";
 
 export default class Character {
   id: number;
