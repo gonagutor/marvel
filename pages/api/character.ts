@@ -2820,7 +2820,9 @@ export default async function handler(
   let response: any = dummyResponse;
   if (!API_IS_BEING_DUMB) response = await Character.getCharacters(search);
   else if (search)
-    response = response.filter((char: any) => char.name.startsWith(search));
+    response = response.filter((char: any) =>
+      char.name.toLowerCase().startsWith(search.toLowerCase())
+    );
 
   res.status(200).json(response);
 }

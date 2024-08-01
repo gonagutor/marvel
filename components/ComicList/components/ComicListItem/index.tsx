@@ -1,7 +1,7 @@
 import Comic from "@/model/comic";
 import "./index.scss";
 
-export default function ComicListItem({ comic }: { comic: Comic }) {
+export default function ComicListItem({ comic }: Readonly<{ comic: Comic }>) {
   return (
     <li>
       <img src={comic.image} alt={comic.name} />

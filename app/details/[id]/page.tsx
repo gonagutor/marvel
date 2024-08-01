@@ -5,14 +5,20 @@ import CharacterHeader from "@/components/CharacterHeader";
 import ComicList from "@/components/ComicList";
 import Character from "@/model/character";
 import "./page.scss";
+import CharacterNotFound from "@/components/CharacterNotFound";
 
 export default async function Details({
   params: { id },
 }: Readonly<{
   params: { id: string };
 }>) {
-  const character = await Character.getCharacterById(parseInt(id));
-  if (!character) return <p>character not found</p>;
+  let character;
+
+  try {
+    character = await Character.getCharacterById(parseInt(id));
+  } catch {
+    return <CharacterNotFound />;
+  }
 
   const expandComicPromises: Array<Promise<any>> = [];
   character.comics.forEach((comic) => expandComicPromises.push(comic.expand()));
@@ -20,7 +26,7 @@ export default async function Details({
 
   return (
     <main>
-      <CharacterHeader character={character} />
+      <CharacterHeader character={JSON.parse(JSON.stringify(character))} />
       <section className="character-info-container">
         <h3>Comics</h3>
         <ComicList character={character} />
