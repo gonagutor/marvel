@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto_Condensed } from "next/font/google";
 import Header from "@/components/Header";
-import Providers from "@/providers";
+import { FavoritesProvider } from "@/providers/FavoritesProvider";
 import "./globals.scss";
 
 const robotoCondensed = Roboto_Condensed({ subsets: ["latin"] });
@@ -19,10 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={robotoCondensed.className}>
-        <Providers>
+        <FavoritesProvider>
           <Header />
           {children}
-        </Providers>
+        </FavoritesProvider>
       </body>
     </html>
   );

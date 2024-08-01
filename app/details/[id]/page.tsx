@@ -1,6 +1,10 @@
 "use server";
 
+import Attribution from "@/components/Attribution";
+import CharacterHeader from "@/components/CharacterHeader";
+import ComicList from "@/components/ComicList";
 import Character from "@/model/character";
+import "./page.scss";
 
 export default async function Details({
   params: { id },
@@ -10,30 +14,18 @@ export default async function Details({
   const character = await Character.getCharacterById(parseInt(id));
   if (!character) return <p>character not found</p>;
 
+  const expandComicPromises: Array<Promise<any>> = [];
+  character.comics.forEach((comic) => expandComicPromises.push(comic.expand()));
+  await Promise.all(expandComicPromises);
+
   return (
     <main>
-      <section>
-        <img src={character.thumbnail} alt={character.name} />
-        <section>
-          <div>
-            <h1>{character.name}</h1>
-            <p>{character.description}</p>
-          </div>
-          <img src="/public/favorite.svg" alt="add or remove from favorites" />
-        </section>
+      <CharacterHeader character={character} />
+      <section className="character-info-container">
+        <h3>Comics</h3>
+        <ComicList character={character} />
       </section>
-      <section>
-        <ul>
-          {character.comics.map((comic) => (
-            <li key={comic.name}>
-              <img src={comic.image} alt={comic.name} />
-              <p>{comic.name}</p>
-              <span>{comic.year}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <p>{character.id}</p>
+      <Attribution />
     </main>
   );
 }

@@ -1,0 +1,93 @@
+@import "../../app/variables.scss";
+
+$corner-cut-size: 24px;
+
+.character-header {
+  position: relative;
+  width: 100%;
+
+  background: $foreground-color;
+  color: $background-color;
+  overflow: hidden;
+
+  > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    max-width: 60rem;
+    margin: auto;
+
+    > img {
+      aspect-ratio: 1;
+      width: 20rem;
+    }
+
+    > section {
+      flex-grow: 1;
+      padding-left: 3rem;
+
+      > div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: 2rem;
+      }
+    }
+
+    @media (max-width: $tablet-breakpoint) {
+      > section {
+        padding: 3rem;
+      }
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      flex-wrap: wrap;
+
+      > img {
+        min-width: 100vw;
+      }
+
+      > section {
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  }
+
+  h2 {
+    padding: 0;
+    margin: 0;
+
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+
+    font-size: 1rem;
+  }
+
+  // Corner cutting
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: $corner-cut-size;
+    height: $corner-cut-size;
+
+    background-color: $background-color;
+
+    margin: calc(-1 * ($corner-cut-size / 2));
+
+    transform: rotate(45deg);
+  }
+}

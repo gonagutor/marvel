@@ -1,0 +1,40 @@
+@import "../../app/variables.scss";
+
+.comic-list {
+  scrollbar-width: thin;
+  scrollbar-color: $accent-color $foreground-color-secondary;
+  scrollbar-arrow-color: $foreground-color-secondary;
+
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  overflow-x: scroll;
+
+  padding: 0;
+  padding-block: 2rem;
+  margin: 0;
+}
+
+ul::-webkit-scrollbar {
+  width: 4px;
+}
+
+ul::-webkit-scrollbar-track {
+  background: $accent-color;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background-color: $foreground-color-secondary;
+}
+
+ul::-webkit-scrollbar-button {
+  display: none;
+}
+
+ul::-moz-scrollbar-button:decrement,
+ul::-moz-scrollbar-button:increment,
+ul::-webkit-scrollbar-button:decrement,
+ul::-webkit-scrollbar-button:increment {
+  width: 0px;
+}

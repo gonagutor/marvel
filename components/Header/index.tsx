@@ -10,7 +10,14 @@ export default function Header() {
 
   return (
     <header className="header">
-      <Image width={130} height={52} src="/marvel-logo.svg" alt="Marvel logo" />
+      <a href="/">
+        <Image
+          width={130}
+          height={52}
+          src="/marvel-logo.svg"
+          alt="Marvel logo"
+        />
+      </a>
 
       <button aria-label="View favorites">
         <Image width={24} height={24} src="/icons/heart.svg" alt="Favorites" />

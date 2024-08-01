@@ -1,0 +1,28 @@
+@import "../../../../app/variables.scss";
+
+li {
+  list-style-type: none;
+  width: 11.25rem;
+
+  img {
+    aspect-ratio: 2/3;
+    width: 11.25rem;
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+
+    font-weight: 500;
+    font-size: 1rem;
+
+    a {
+      text-decoration: none;
+      color: $foreground-color;
+    }
+  }
+
+  span {
+    font-size: 0.75rem;
+  }
+}
