@@ -31,7 +31,6 @@ export default class Comic {
       this.image = imageObject.path + "." + imageObject.extension;
     } catch (e) {
       this.image = NOT_AVAILABLE;
-      throw new Error("Could not expand comic");
     }
   }
 }

@@ -19,14 +19,8 @@ export default function CharacterListItem({
       <button
         onClick={
           isFavorite
-            ? () => {
-                console.log(character);
-                addFavorite(character);
-              }
-            : () => {
-                console.log(character);
-                removeFavorite(character);
-              }
+            ? () => removeFavorite(character)
+            : () => addFavorite(character)
         }
       >
         <span>{character.name}</span>

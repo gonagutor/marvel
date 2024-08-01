@@ -31,7 +31,7 @@ export function FavoritesProvider({
     updateFavorites();
   };
 
-  useEffect(() => updateFavorites(), []);
+  useEffect(updateFavorites, []);
 
   return (
     <FavoritesContext.Provider

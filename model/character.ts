@@ -16,7 +16,9 @@ export default class Character {
     this.name = data.name;
     this.thumbnail = `${data.thumbnail.path}.${data.thumbnail.extension}`;
     this.description = data.description;
-    this.comics = data.comics.items.map((comic: any) => new Comic(comic));
+    this.comics = (data.comics.items ?? data.comics).map(
+      (comic: any) => new Comic(comic)
+    );
   }
 
   static async getCharacters(filter?: string): Promise<Array<Character>> {
