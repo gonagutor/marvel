@@ -6,12 +6,12 @@ import Favorites from "../model/favorites";
 
 export const FavoritesContext = createContext<{
   favorites: Array<Character>;
-  addFavorite?: (character: Character) => void;
-  removeFavorite?: (character: Character) => void;
+  addFavorite: (character: Character) => void;
+  removeFavorite: (character: Character) => void;
 }>({
   favorites: [],
-  addFavorite: undefined,
-  removeFavorite: undefined,
+  addFavorite: (character: Character) => {},
+  removeFavorite: (character: Character) => {},
 });
 
 export function FavoritesProvider({

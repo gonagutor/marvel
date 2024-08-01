@@ -6,6 +6,8 @@ export const serverAxios = new Axios({
 });
 
 serverAxios.interceptors.request.use((config) => {
+  if (!config.params) config.params = {};
+
   config.params.limit = config.params.limit || 50;
   config.params.ts = Date.now();
   config.params.apikey = process.env.MARVEL_PUBLIC_API_KEY;

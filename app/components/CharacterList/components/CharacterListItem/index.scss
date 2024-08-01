@@ -10,13 +10,18 @@ $corner-cut-size: 12px;
 
   list-style-type: none;
 
-  > img {
-    aspect-ratio: 1;
-    border-bottom: 5px solid $accent-color;
-    background-color: $foreground-color;
+  > a {
+    display: contents;
+
+    > img {
+      aspect-ratio: 1;
+      border-bottom: 5px solid $accent-color;
+      background-color: $foreground-color;
+    }
   }
 
-  > section {
+  > button {
+    cursor: pointer;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -26,6 +31,7 @@ $corner-cut-size: 12px;
 
     background: $foreground-color;
     color: $background-color;
+    border: none;
 
     padding: 1rem 1rem 1.5rem 1rem;
 
@@ -83,7 +89,7 @@ $corner-cut-size: 12px;
   }
 }
 
-.character-list-item:hover > section {
+.character-list-item:hover > button {
   > img {
     -webkit-filter: brightness(100);
     filter: brightness(100);

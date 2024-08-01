@@ -6,12 +6,10 @@ import { SearchContext } from "@/app/providers/SearchProvider";
 import "./index.scss";
 
 export default function SearchBar() {
-  const { term, setTerm } = useContext(SearchContext);
+  const { term, search, characters } = useContext(SearchContext);
 
-  const onSearchTermChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (!setTerm) return;
-    setTerm(e.currentTarget.value);
-  };
+  const onSearchTermChange = (e: ChangeEvent<HTMLInputElement>) =>
+    search(e.currentTarget.value);
 
   return (
     <search className="searchbar">
@@ -24,7 +22,7 @@ export default function SearchBar() {
           onChange={onSearchTermChange}
         />
       </section>
-      <p>50 Results</p>
+      <p>{characters ? characters.length : 0} Results</p>
     </search>
   );
 }

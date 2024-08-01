@@ -44,13 +44,14 @@ export default class Character {
     }
   }
 
-  static async getCharacterById(id: string): Promise<Character> {
+  static async getCharacterById(id: number): Promise<Character> {
     try {
       const response = await serverAxios.get(`${ENDPOINTS.CHARACTERS}/${id}`);
 
-      return response.data.data.results.map(
+      const responseData = JSON.parse(response.data);
+      return responseData.data.results.map(
         (character: any) => new Character(character)
-      );
+      )[0];
     } catch (error: any) {
       if (!error.request)
         throw new Error("An error occurred when sending the request");
