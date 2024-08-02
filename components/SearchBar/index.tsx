@@ -15,17 +15,20 @@ export default function SearchBar() {
 
   return (
     <search className="searchbar">
-      {isFavoriteSearch && <h2>Favorites</h2>}
+      {isFavoriteSearch && <h2 data-testid="search-favorite">Favorites</h2>}
       <section>
         <Image src="/icons/search.svg" width={12} height={12} alt="Search" />
         <input
+          data-testid="search-input"
           type="search"
           placeholder="Search a character..."
           value={term}
           onChange={onSearchTermChange}
         />
       </section>
-      <p>{characters ? characters.length : 0} Results</p>
+      <p data-testid="search-count">
+        {characters ? characters.length : 0} Results
+      </p>
     </search>
   );
 }

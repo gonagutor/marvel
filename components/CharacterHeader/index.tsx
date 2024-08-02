@@ -31,11 +31,18 @@ export default function CharacterHeader({
   return (
     <section className="character-header">
       <div>
-        <img src={character.thumbnail} alt={character.name} />
+        <img
+          data-testid="character-image"
+          src={character.thumbnail}
+          alt={character.name}
+        />
         <section>
           <div>
-            <h2>{character.name}</h2>
-            <button style={{ display: "contents" }} onClick={onHeartClick}>
+            <h2 data-testid="character-name">{character.name}</h2>
+            <button
+              data-testid="character-favorite-button"
+              onClick={onHeartClick}
+            >
               <Image
                 width={24}
                 height={24}
@@ -44,7 +51,7 @@ export default function CharacterHeader({
               />
             </button>
           </div>
-          <p>
+          <p data-testid="character-description">
             {character.description.length
               ? character.description
               : "No description found"}

@@ -19,7 +19,7 @@ export default function ComicList({
   });
 
   return (
-    <ul className="comic-list">
+    <ul data-testid="comic-list" className="comic-list">
       {sortedComics.slice(0, 20).map((comic) => (
         <ComicListItem key={comic.name} comic={comic} />
       ))}

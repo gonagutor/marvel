@@ -11,7 +11,7 @@ export default function Header() {
   const { push } = useRouter();
   return (
     <header className="header">
-      <a href="/">
+      <a data-testid="header-homepage-link" href="/" aria-label="Homepage">
         <Image
           width={130}
           height={52}
@@ -22,6 +22,7 @@ export default function Header() {
       </a>
 
       <button
+        data-testid="header-favorites-link"
         aria-label="View favorites"
         onClick={() => {
           push("/");
@@ -29,7 +30,7 @@ export default function Header() {
         }}
       >
         <Image width={24} height={24} src="/icons/heart.svg" alt="Favorites" />
-        <span>{favorites.length}</span>
+        <span data-testid="header-favorites-count">{favorites.length}</span>
       </button>
     </header>
   );

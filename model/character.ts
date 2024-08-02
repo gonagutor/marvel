@@ -60,10 +60,11 @@ export default class Character {
     } catch (error: any) {
       if (!error.request)
         throw new Error("An error occurred when sending the request");
+
       throw new CouldNotRetrieveCharacters(
         error.request.message,
         error.request.code,
-        error.request.params.ts
+        error.request.url
       );
     }
   }

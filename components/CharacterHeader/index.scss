@@ -34,6 +34,15 @@ $corner-cut-size: 24px;
         justify-content: space-between;
 
         margin-bottom: 2rem;
+
+        > button {
+          background: none;
+          color: none;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
     }
 
