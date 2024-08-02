@@ -11,9 +11,16 @@ export default function ComicList({
     );
   }
 
+  const sortedComics = character.comics.toSorted((characterA, characterB) => {
+    if (characterA.year === "Unknown") return 999;
+    if (characterB.year === "Unknown") return -1;
+
+    return parseInt(characterB.year) - parseInt(characterA.year);
+  });
+
   return (
     <ul className="comic-list">
-      {character.comics.map((comic) => (
+      {sortedComics.slice(0, 20).map((comic) => (
         <ComicListItem key={comic.name} comic={comic} />
       ))}
     </ul>

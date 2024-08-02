@@ -8,7 +8,7 @@ export default class Comic {
   resourceURI: string;
   image?: string;
   name: string;
-  year: number;
+  year: string;
 
   constructor(data: any) {
     this.resourceURI = data.resourceURI;
