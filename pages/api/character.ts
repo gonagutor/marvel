@@ -1,7 +1,7 @@
 import Character from "@/model/character";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-const API_IS_BEING_DUMB = true;
+const API_IS_BEING_DUMB = false;
 const dummyResponse = [
   {
     id: 1011334,
