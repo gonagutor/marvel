@@ -1,8 +1,9 @@
 "use client";
 
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import Character from "@/model/character";
 import useCharacters from "@/hooks/useCharacters";
+import { FavoritesContext } from "./FavoritesProvider";
 
 const DEBOUNCE_TIME = 1000;
 
@@ -20,20 +21,40 @@ export function SearchProvider({
   const [lastTerm, setLastTerm] = useState("");
   const [term, setTerm] = useState("");
   const { error, fetch, loading, characters } = useCharacters();
+  const { isFavoriteSearch, favorites } = useContext(FavoritesContext);
+  const [filteredFavorites, setFilteredFavorites] =
+    useState<Array<Character>>(favorites);
+
+  const filterFavorites = (search: string) =>
+    favorites?.filter((char) =>
+      char.name.toLowerCase().startsWith(search.toLowerCase())
+    ) || [];
 
   useEffect(() => {
     const searchOnTypingEnd = setTimeout(() => {
       if (term != lastTerm) {
-        fetch(term);
+        if (isFavoriteSearch) setFilteredFavorites(filterFavorites(term));
+        else fetch(term);
+
         setLastTerm(term);
       }
     }, DEBOUNCE_TIME);
     return () => clearTimeout(searchOnTypingEnd);
   }, [term]);
 
+  useEffect(() => {
+    if (isFavoriteSearch) setFilteredFavorites(filterFavorites(term));
+  }, [favorites, isFavoriteSearch]);
+
   return (
     <SearchContext.Provider
-      value={{ term, search: setTerm, characters, error, loading }}
+      value={{
+        term,
+        search: setTerm,
+        characters: isFavoriteSearch ? filteredFavorites : characters,
+        error,
+        loading,
+      }}
     >
       {children}
     </SearchContext.Provider>

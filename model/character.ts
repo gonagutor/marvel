@@ -14,7 +14,10 @@ export default class Character {
   constructor(data: any) {
     this.id = data.id;
     this.name = data.name;
-    this.thumbnail = `${data.thumbnail.path}.${data.thumbnail.extension}`;
+    this.thumbnail =
+      typeof data.thumbnail === "string"
+        ? data.thumbnail
+        : `${data.thumbnail.path}.${data.thumbnail.extension}`;
     this.description = data.description;
     this.comics = (data.comics.items ?? data.comics).map(
       (comic: any) => new Comic(comic)

@@ -8,16 +8,21 @@ export const FavoritesContext = createContext<{
   favorites: Array<Character>;
   addFavorite: (character: Character) => void;
   removeFavorite: (character: Character) => void;
+  isFavoriteSearch: boolean;
+  setIsFavoriteSearch: (isFavoriteSearch: boolean) => void;
 }>({
   favorites: [],
   addFavorite: (character: Character) => {},
   removeFavorite: (character: Character) => {},
+  isFavoriteSearch: false,
+  setIsFavoriteSearch: (isFavoriteSearch: boolean) => {},
 });
 
 export function FavoritesProvider({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const [favorites, setFavorites] = useState<Array<Character>>([]);
+  const [isFavoriteSearch, setIsFavoriteSearch] = useState(false);
 
   const updateFavorites = () => setFavorites(Favorites.getFavorites());
 
@@ -35,7 +40,13 @@ export function FavoritesProvider({
 
   return (
     <FavoritesContext.Provider
-      value={{ favorites, addFavorite, removeFavorite }}
+      value={{
+        favorites,
+        addFavorite,
+        removeFavorite,
+        isFavoriteSearch,
+        setIsFavoriteSearch,
+      }}
     >
       {children}
     </FavoritesContext.Provider>

@@ -7,10 +7,11 @@ import CharacterListItem from "./components/CharacterListItem";
 import "./index.scss";
 
 export default function CharacterList() {
-  const { loading, error, characters } = useContext(SearchContext);
+  const { loading, error, characters, isFavoriteSearch } =
+    useContext(SearchContext);
 
-  if (loading) return <p>Fetching characters...</p>;
-  if (error)
+  if (loading && !isFavoriteSearch) return <p>Fetching characters...</p>;
+  if (error && !isFavoriteSearch)
     return (
       <p>
         An error ocurred while loading the page.{" "}

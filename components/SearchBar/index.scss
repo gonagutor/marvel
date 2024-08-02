@@ -3,6 +3,12 @@
 .searchbar {
   padding-top: 3rem;
 
+  h2 {
+    padding: 0;
+    padding-bottom: 2rem;
+    margin: 0;
+  }
+
   section {
     display: flex;
     flex-direction: row;

@@ -4,15 +4,18 @@ import { ChangeEvent, useContext } from "react";
 import Image from "next/image";
 import { SearchContext } from "@/providers/SearchProvider";
 import "./index.scss";
+import { FavoritesContext } from "@/providers/FavoritesProvider";
 
 export default function SearchBar() {
   const { term, search, characters } = useContext(SearchContext);
+  const { isFavoriteSearch } = useContext(FavoritesContext);
 
   const onSearchTermChange = (e: ChangeEvent<HTMLInputElement>) =>
     search(e.currentTarget.value);
 
   return (
     <search className="searchbar">
+      {isFavoriteSearch && <h2>Favorites</h2>}
       <section>
         <Image src="/icons/search.svg" width={12} height={12} alt="Search" />
         <input
