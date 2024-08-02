@@ -5,10 +5,11 @@ import { SearchContext } from "@/providers/SearchProvider";
 import Character from "@/model/character";
 import CharacterListItem from "./components/CharacterListItem";
 import "./index.scss";
+import { FavoritesContext } from "@/providers/FavoritesProvider";
 
 export default function CharacterList() {
-  const { loading, error, characters, isFavoriteSearch } =
-    useContext(SearchContext);
+  const { loading, error, characters } = useContext(SearchContext);
+  const { isFavoriteSearch } = useContext(FavoritesContext);
 
   if (loading && !isFavoriteSearch) return <p>Fetching characters...</p>;
   if (error && !isFavoriteSearch)
